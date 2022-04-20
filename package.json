@@ -1,0 +1,35 @@
+{
+  "name": "@bramanda48/nestjs-service-registry",
+  "version": "0.1.0",
+  "description": "Simple Service registry for NestJS",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && tsc",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "microservice",
+    "simple service registry"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bramanda48/nestjs-service-registry"
+  },
+  "author": "Bramanda Suwandi",
+  "license": "MIT",
+  "dependencies": {
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
+    "axios": "^0.26.1",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.2.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.25",
+    "@types/uuid": "^8.3.4",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.6.3"
+  }
+}
