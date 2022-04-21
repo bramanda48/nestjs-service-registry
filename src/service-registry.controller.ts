@@ -1,8 +1,13 @@
-import { Controller, Get, Param, Query } from "@nestjs/common";
+import { Controller, Get, Param, Query, VERSION_NEUTRAL } from "@nestjs/common";
+import { ApiExcludeController } from "@nestjs/swagger";
 import { ServiceDescription, ServiceRegistry } from "./service-registry.service";
 import { GetClientIp, isEmpty } from "./utils";
 
-@Controller('service-registry')
+@ApiExcludeController()
+@Controller({
+    path: 'service-registry',
+    version: VERSION_NEUTRAL
+})
 export class ServiceRegistryController {
     constructor(
         private readonly serviceRegistry: ServiceRegistry,
