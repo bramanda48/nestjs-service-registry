@@ -1,6 +1,6 @@
 {
   "name": "@bramanda48/nestjs-service-registry",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Simple Service registry for NestJS",
   "main": "dist/index.js",
   "scripts": {
