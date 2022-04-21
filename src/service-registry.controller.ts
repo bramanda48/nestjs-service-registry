@@ -22,11 +22,16 @@ export class ServiceRegistryController {
         };
     }
 
+    @Get('/list/group')
+    async getGroupedService() {
+        return await this.serviceRegistry.ApiGroupService();
+    }
+
     @Get('/list/:name')
     async getOneService(
         @Param('name') name: string,
     ) {
-        return await this.serviceRegistry.ApiGetService(name)
+        return await this.serviceRegistry.ApiGetService(name);
     }
 
     @Get('/register/:name')

@@ -98,6 +98,21 @@ export class ServiceRegistry {
         return filter[index];
     }
 
+    /**
+     * (API) Get grouped service
+     * @returns Promise<Record<string, ServiceDescription>>
+     */
+    async ApiGroupService(): Promise<Record<string, ServiceDescription>> {
+        let groupService: Record<string, ServiceDescription> = {};
+        for(const service of this.listService) {
+            let name: string = service.name;
+            if(!groupService.hasOwnProperty(name)) {
+                groupService[name] = await this.ApiGetService(name);
+            }
+        }
+        return groupService;
+    }
+
     async CheckAllService(): Promise<boolean> {
         let self = this;
         setInterval(function() {
@@ -135,6 +150,28 @@ export class ServiceRegistry {
                 'service-registry', 
                 'list',
                 serviceName
+            ].join('/')).then(function(resp) {
+                service = resp.data;
+            })
+            .catch(function(error) {});
+        }
+        return service;
+    }
+
+    /**
+     * Get grouped service
+     * @returns Promise<Record<string, ServiceDescription>>
+     */
+     async GetServices(): Promise<Record<string, ServiceDescription>> {
+        let service: Record<string, ServiceDescription> = null;
+        if(ServiceRegistryModule.mode == 'server') {
+            service = await this.ApiGroupService();
+        } else {
+            await axios.get<Record<string, ServiceDescription>>([
+                ServiceRegistry.config.registryServer, 
+                'service-registry', 
+                'list',
+                'group'
             ].join('/')).then(function(resp) {
                 service = resp.data;
             })
