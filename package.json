@@ -1,12 +1,12 @@
 {
   "name": "@bramanda48/nestjs-service-registry",
-  "version": "0.1.4",
+  "version": "0.1.5-rc.1",
   "description": "Simple Service registry for NestJS",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rimraf dist && tsc",
+    "build": "rimraf dist && tsc --build tsconfig.build.json",
     "prepublish": "npm run build",
-    "format": "prettier --write \"src/**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\" \"examples/apps/**/*.ts\""
   },
   "keywords": [
     "microservice",
@@ -19,20 +19,20 @@
   "author": "Bramanda Suwandi",
   "license": "MIT",
   "dependencies": {
-    "@nestjs/common": "^8.0.0",
-    "@nestjs/core": "^8.0.0",
-    "@nestjs/swagger": "^5.2.1",
-    "axios": "^0.26.1",
-    "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0",
-    "uuid": "^8.3.2"
+    "@nestjs/common": "^10.3.8",
+    "@nestjs/core": "^10.3.8",
+    "@nestjs/swagger": "^7.3.1",
+    "axios": "^1.6.8",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@types/node": "^17.0.25",
-    "@types/uuid": "^8.3.4",
+    "@types/node": "^20.12.10",
+    "@types/uuid": "^9.0.8",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.6.3"
+    "rimraf": "^5.0.5",
+    "typescript": "^5.4.5"
   }
 }
