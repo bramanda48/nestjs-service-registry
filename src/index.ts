@@ -1,2 +1,2 @@
-export {ServiceRegistryModule} from "./service-registry.module";
-export {ServiceRegistry, ServiceDescription} from "./service-registry.service"
+export { ServiceRegistryModule } from "./service-registry.module";
+export { ServiceDescription, ServiceRegistry } from "./service-registry.service";
