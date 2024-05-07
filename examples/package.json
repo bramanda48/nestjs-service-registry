@@ -10,16 +10,18 @@
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
+    "start:dev:all": "concurrently -n \"service-a,service-b,server-registry\" \"yarn start:dev service-a\" \"yarn start:dev service-b\" \"yarn start:dev server-registry\"",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/apps/service-registry/main",
+    "start:prod": "node dist/apps/server-registry/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./apps/service-registry/test/jest-e2e.json"
+    "test:e2e": "jest --config ./apps/server-registry/test/jest-e2e.json"
   },
   "dependencies": {
+    "@bramanda48/nestjs-server-registry": "../",
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
@@ -36,6 +38,7 @@
     "@types/supertest": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "concurrently": "^8.2.2",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",

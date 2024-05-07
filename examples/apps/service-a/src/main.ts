@@ -1,8 +1,15 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { ServiceRegistry } from '@bramanda48/nestjs-service-registry';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+  await app.listen(3001);
+
+  ServiceRegistry.register(app, {
+    serviceName: 'service-a',
+    registryServer: 'http://localhost:3000',
+    host: 'http://127.0.0.1:3001',
+  });
 }
 bootstrap();
