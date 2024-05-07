@@ -18,13 +18,13 @@
 
 To see how to use this library, you can refer to the examples folder or follow these instructions.
 
-#### Install @bramanda48/nestjs-service-registry using npm:
+Install @bramanda48/nestjs-service-registry using npm:
 
 ```bash
 npm install --save @bramanda48/nestjs-service-registry
 ```
 
-#### Install @bramanda48/nestjs-service-registry using yarn:
+Install @bramanda48/nestjs-service-registry using yarn:
 
 ```bash
 yarn add @bramanda48/nestjs-service-registry
